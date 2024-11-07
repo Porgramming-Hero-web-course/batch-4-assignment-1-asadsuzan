@@ -1,5 +1,7 @@
-// Create a function validateKeys(obj: T, keys: (keyof T)[]) that takes an object obj and an array of keys keys. The function should return true if all of the specified keys exist in the object; otherwise, it should return false.
-function validateKeys<T extends object>(obj: T, keys: (keyof T)[]) {
-    return keys.every((key) => key in obj);
+function validateKeys<T extends object, K extends keyof T>(obj: T, keys: [K, ...K[]]): boolean {
+    // check if keys is empty
+    if (keys.length === 0) return false
+    // Check if every key in the keys array exists in the object
+    return keys.every(key => key in obj);
 }
 
