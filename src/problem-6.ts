@@ -6,6 +6,13 @@ interface Profile {
     email: string
 }
 
-function updateProfile(fullObj: Profile, partialObj: Profile | { name: string } | { age: number } | { email: string }): Profile {
-    return { ...fullObj, ...partialObj }
+// function updateProfile(fullObj: Profile, partialObj: Profile | { name: string } | { age: number } | { email: string }): Profile {
+//     return { ...fullObj, ...partialObj }
+// }
+
+function updateProfile(fullObj: Profile, partial: Partial<Profile>) {
+
+    return { ...fullObj, ...partial }
+
 }
+
